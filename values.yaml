@@ -1844,10 +1844,6 @@ configs:
   # -- Repository credentials to be used as Templates for other repos
   ## Creates a secret for each key/value specified below to create repository credentials
   credentialTemplates:
-    github:
-      url: https://github.com/
-      password: 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
-      username: null
     # github-enterprise-creds-1:
     #   url: https://github.com/argoproj
     #   githubAppID: 1
