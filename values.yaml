@@ -21,10 +21,10 @@ crds:
 global:
   image:
     # -- If defined, a repository applied to all Argo CD deployments
-    repository: argocd
+    repository: ghcr.io/davidshen84/argocd
     # repository: quay.io/argoproj/argocd
     # -- Overrides the global Argo CD image tag whose default is the chart appVersion
-    tag: "t"
+    tag: ""
     # -- If defined, a imagePullPolicy applied to all Argo CD deployments
     imagePullPolicy: IfNotPresent
   logging:
