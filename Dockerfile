@@ -1,8 +1,15 @@
-ARG ARGOCD_VERSION=2.4.11
-FROM argoproj/argocd:v${ARGOCD_VERSION}
-
-ARG SOPS_VERSION=3.7.3 \
+ARG ARGOCD_VERSION=2.4.11 \
+    SOPS_VERSION=3.7.3 \
     HELM_SECRETS_VERSION=4.0.0
+
+FROM argoproj/argocd:v${ARGOCD_VERSION}
+LABEL maintainer="David Shen" \
+    SOPS=${SOPS_VERSION} \
+    HELM=${HELM_SECRETS_VERSION} \
+    AZ=latest
+
+ARG SOPS_VERSION \
+    HELM_SECRETS_VERSION
 
 USER root
 
@@ -11,6 +18,8 @@ RUN apt-get update \
     && apt-get install -y \
     curl \
     age \
+    # && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
+    && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
