@@ -21,10 +21,10 @@ crds:
 global:
   image:
     # -- If defined, a repository applied to all Argo CD deployments
-    repository: ghcr.io/davidshen84/argocd
+    repository: argocd
     # repository: quay.io/argoproj/argocd
     # -- Overrides the global Argo CD image tag whose default is the chart appVersion
-    tag: ""
+    tag: "az"
     # -- If defined, a imagePullPolicy applied to all Argo CD deployments
     imagePullPolicy: IfNotPresent
   logging:
@@ -1494,7 +1494,9 @@ repoServer:
 
   # -- envFrom to pass to repo server
   # @default -- `[]` (See [values.yaml])
-  envFrom: []
+  envFrom:
+    - secretRef:
+        name: az-secrets
   # - configMapRef:
   #     name: config-map-name
   # - secretRef:
@@ -1543,22 +1545,10 @@ repoServer:
     timeoutSeconds: 1
 
   # -- Additional volumeMounts to the repo server main container
-  volumeMounts:
-    - name: argocd-sops-age-key
-      mountPath: /argocd-helm-secrets-age-keys
-    - name: argocd-sops-age-key-2
-      mountPath: /argocd-helm-secrets-age-keys-2
+  volumeMounts: []
 
   # -- Additional volumes to the repo server pod
-  volumes:
-    - name: argocd-sops-age-key
-      secret:
-        secretName: argocd-sops-age-key
-        defaultMode: 0444
-    - name: argocd-sops-age-key-2
-      secret:
-        secretName: argocd-sops-age-key-2
-        defaultMode: 0444
+  volumes: []
 
   ## Use init containers to configure custom tooling
   ## https://argo-cd.readthedocs.io/en/stable/operator-manual/custom_tools/

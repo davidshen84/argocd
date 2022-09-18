@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: az-secrets.yaml
+    age: age10ueklhfy0wgrx2kqnndha69cc0e2dn80sdg6ej26c2gvfgd2fctqme6l9l
