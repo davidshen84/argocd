@@ -9,12 +9,15 @@
 
 * Install
 
-  #+begin_src shell
-    helm repo add argo https://argoproj.github.io/argo-helm
-  #+end_src
+** Install AZ service principal secrets
+#+begin_src shell
+  kubectl apply --namespace argocd --filename az-secrets.yaml
+#+end_src
 
-  #+RESULTS:
-  | argo already exists with the same configuration | skipping |
+** Install argo repo
+#+begin_src shell
+  helm repo add argo https://argoproj.github.io/argo-helm
+#+end_src
 
 ** Install argocd chart to k8s
 #+begin_src shell :results verbatim
