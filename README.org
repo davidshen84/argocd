@@ -13,9 +13,6 @@
     helm repo add argo https://argoproj.github.io/argo-helm
   #+end_src
 
-  #+RESULTS:
-  | argo already exists with the same configuration | skipping |
-
 ** Install argocd chart to k8s
 #+begin_src shell :results verbatim
   helm upgrade --install --create-namespace --namespace argocd my-argo-cd argo/argo-cd --values ./values.yaml
