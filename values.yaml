@@ -1546,18 +1546,12 @@ repoServer:
   volumeMounts:
     - name: argocd-sops-age-key
       mountPath: /argocd-helm-secrets-age-keys
-    - name: argocd-sops-age-key-2
-      mountPath: /argocd-helm-secrets-age-keys-2
 
   # -- Additional volumes to the repo server pod
   volumes:
     - name: argocd-sops-age-key
       secret:
         secretName: argocd-sops-age-key
-        defaultMode: 0444
-    - name: argocd-sops-age-key-2
-      secret:
-        secretName: argocd-sops-age-key-2
         defaultMode: 0444
 
   ## Use init containers to configure custom tooling

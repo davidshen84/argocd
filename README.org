@@ -1,6 +1,5 @@
 #+TITLE:  README
 
-
 * Links
 - https://artifacthub.io/packages/helm/argo/argo-cd
 - https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
